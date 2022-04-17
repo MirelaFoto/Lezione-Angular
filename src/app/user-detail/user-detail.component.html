@@ -1,0 +1,28 @@
+<p>Values of "User" Object</p>
+Id: {{user.id}} <br>
+Name: {{user.name}} <br>
+Surname: {{user.surname}} <br>
+Age: {{user.age}} <br>
+Date of Birth: {{user.dateOfBirth | date}} <br>
+<strong>Address:</strong><br>
+City: {{user.address.city}} <br>
+Street:{{user.address.street}} <br>
+Postal code: {{user.address.postalCode}} <br>
+
+Role: {{user.role}} <br>
+User Name: {{user.username}} <br>
+
+ <img [src]="user.profilePhotoUrl"
+ style="width: 300px;height: 300px;"
+ ><br>
+
+ Gender: {{user.gender}} <br>
+  Companies: {{user.companies[0].name}}<br>
+
+  description: {{user.companies[0].description}}<br>
+
+  Companies: {{user.companies[1].name}} <br>
+
+  description:{{user.companies[1].description}}<br>
+
+
