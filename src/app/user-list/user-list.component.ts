@@ -1,22 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { Gender, IUser,Role } from './user';
 
 @Component({
   selector: 'app-user-list',
   template: `
-  <ol>
-<li *ngFor="let  key of User  ">
-  <div class="cont"><img [src]="key.profilePhotoUrl" style="width:70px;height:70px" alt="">
-    <span><b>{{key.name +' '+key.surname}}</b> </span>
-    <span>{{key.age}} </span>
-    <span>{{key.address.city}} </span>
-    <app-user-single [item]='myItem'> </app-user-single>
-</div> </li>
-</ol>
-
-
-  
-  
+  <h2>{{title}} </h2>
+  <app-user-single *ngFor= "let key of User, let i = index;" [index]='i' [item]='key' 
+  (clickedButton)="onClicked($event)"> </app-user-single>
   `,
   styleUrls: ['./user-list.component.css']
 })
@@ -50,8 +40,8 @@ export class UserListComponent implements OnInit {
       street: 'Via Palermo 10',
       postalCode: '90100'
     },
-    role:Role.STAFF,
-    gender: Gender.MALE,
+    role:Role.MANAGER,
+    gender: Gender.FEMALE,
     username: 'MariaRossa94',
     profilePhotoUrl: 'https://bit.ly/3DWWxuj',
     
@@ -67,7 +57,7 @@ export class UserListComponent implements OnInit {
       street: 'Via Palermo 120',
       postalCode: '90100'
     },
-    role:Role.STAFF,
+    role:Role.ADMIN,
     gender: Gender.MALE,
     username: 'ElisMiao',
     profilePhotoUrl: 'https://bit.ly/3zU6iH3',
@@ -75,7 +65,14 @@ export class UserListComponent implements OnInit {
   }
 ];
 
-myItem = 'User-single';
+title = 'User details: '
+
+onClicked(message:string){
+return this.title= 'User details: '+'  '+ message;
+  
+}
+
+show:boolean= true;
 
 
   constructor() { }

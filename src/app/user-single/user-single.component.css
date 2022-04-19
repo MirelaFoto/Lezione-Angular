@@ -1,0 +1,7 @@
+.cont{
+    display: flex;
+    gap:30px;
+    justify-content: baseline;
+    align-items: center;
+    padding-bottom: 2em;
+}

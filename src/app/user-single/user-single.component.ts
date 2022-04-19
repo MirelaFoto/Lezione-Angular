@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { IUser } from '../user-list/user';
 
 @Component({
@@ -7,12 +8,24 @@ import { IUser } from '../user-list/user';
   styleUrls: ['./user-single.component.css']
 })
 export class UserSingleComponent implements OnInit {
-  @Input() item = '';
+  @Input() item!:IUser;
+  @Input() index!:number ;
+show:boolean = true;
+  @Output()
+  clickedButton :EventEmitter<string> = new EventEmitter<string>();
 
+ onDelete(){
+   this.clickedButton.emit('You deleted the image!')
+  
+   this.show= false;
+
+ }
+
+ 
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
-

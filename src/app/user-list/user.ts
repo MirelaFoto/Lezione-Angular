@@ -34,12 +34,12 @@ export interface IUser {
     age:number,
     dateOfBirth: string,
     address: IAddress,
-    role: Role.STAFF,
+    role: Role,
         username: string,
         profilePhotoUrl: string,
        
     	
-        gender: Gender.MALE
+        gender: Gender
     }
 
 
