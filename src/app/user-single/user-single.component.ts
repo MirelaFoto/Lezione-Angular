@@ -7,7 +7,8 @@ import { IUser } from '../user-list/user';
   styleUrls: ['./user-single.component.css']
 })
 export class UserSingleComponent implements OnInit {
-  @Input() item = '';
+  @Input() item!:IUser;
+  @Input() index!:number ;
 
   constructor() { }
 

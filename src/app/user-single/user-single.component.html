@@ -1,1 +1,6 @@
-<div>{{item}} </div>
+<div class="cont">{{index+1}}. <img [src]="item.profilePhotoUrl" style="width:70px;height:70px" alt="">
+  <span><b>{{item.name +' '+item.surname}}</b> </span>
+  <span>{{item.age}} </span>
+  <span>{{item.address.city}} </span>
+
+</div>

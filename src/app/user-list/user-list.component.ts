@@ -4,19 +4,9 @@ import { Gender, IUser,Role } from './user';
 @Component({
   selector: 'app-user-list',
   template: `
-  <ol>
-<li *ngFor="let  key of User  ">
-  <div class="cont"><img [src]="key.profilePhotoUrl" style="width:70px;height:70px" alt="">
-    <span><b>{{key.name +' '+key.surname}}</b> </span>
-    <span>{{key.age}} </span>
-    <span>{{key.address.city}} </span>
-    <app-user-single [item]='myItem'> </app-user-single>
-</div> </li>
-</ol>
+  <app-user-single *ngFor= "let key of User, let i = index;" [index]='i' [item]='key' > </app-user-single>
 
 
-  
-  
   `,
   styleUrls: ['./user-list.component.css']
 })
@@ -50,8 +40,8 @@ export class UserListComponent implements OnInit {
       street: 'Via Palermo 10',
       postalCode: '90100'
     },
-    role:Role.STAFF,
-    gender: Gender.MALE,
+    role:Role.MANAGER,
+    gender: Gender.FEMALE,
     username: 'MariaRossa94',
     profilePhotoUrl: 'https://bit.ly/3DWWxuj',
     
@@ -75,7 +65,7 @@ export class UserListComponent implements OnInit {
   }
 ];
 
-myItem = 'User-single';
+
 
 
   constructor() { }
