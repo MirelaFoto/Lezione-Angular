@@ -3,7 +3,21 @@ import { Gender, IUser,Role } from './user';
 
 @Component({
   selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
+  template: `
+  <ol>
+<li *ngFor="let  key of User  ">
+  <div class="cont"><img [src]="key.profilePhotoUrl" style="width:70px;height:70px" alt="">
+    <span><b>{{key.name +' '+key.surname}}</b> </span>
+    <span>{{key.age}} </span>
+    <span>{{key.address.city}} </span>
+    <app-user-single [item]='myItem'> </app-user-single>
+</div> </li>
+</ol>
+
+
+  
+  
+  `,
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
@@ -61,7 +75,7 @@ export class UserListComponent implements OnInit {
   }
 ];
 
-
+myItem = 'User-single';
 
 
   constructor() { }
