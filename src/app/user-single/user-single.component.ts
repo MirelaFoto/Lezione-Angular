@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { IUser } from '../user-list/user';
+
+import { IUser, Role } from '../user-list/user';
 
 @Component({
   selector: 'app-user-single',
@@ -20,6 +21,25 @@ show:boolean = true;
    this.show= false;
 
  }
+color='';
+
+  colorBy (color:string): any{
+ 
+
+    if (this.item.role == Role.ADMIN){
+     return color ='red'
+    }
+    else if(this.item.role  == Role.STAFF){
+     return color ='blue'
+
+     }
+     else(this.item.role  == Role.MANAGER);{
+     return color ='green'
+
+     }
+
+
+}
 
  
   
