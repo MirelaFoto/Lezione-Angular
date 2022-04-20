@@ -1,0 +1,13 @@
+div{
+    display: flex;
+    flex-direction: row;
+   background-color: rgb(133, 79, 79);
+    margin:0 10px 10px 60px;
+    padding: 1em;
+    gap: 5px;
+   
+}
+.item{
+margin: 0;
+    width: 50%;
+}

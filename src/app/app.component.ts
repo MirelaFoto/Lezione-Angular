@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
   <div style="height:100px;width:100%">app.component</div>
 
-
+<div class="all">
   <div class="container">
   <app-user-list class="item1">
 
@@ -16,6 +16,20 @@ import { Component } from '@angular/core';
   
   <app-user-detail class="item2"></app-user-detail>
   </div>
+  
+
+
+
+<app-order-container class="contain">
+
+
+
+</app-order-container>
+
+
+
+
+</div>
   `,
   styleUrls: ['./app.component.css']
 })
