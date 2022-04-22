@@ -10,14 +10,14 @@ import { IUser } from '../user-list/user';
 export class UserSingleComponent implements OnInit {
   @Input() item!:IUser;
   @Input() index!:number ;
-show:boolean = true;
-  @Output()
-  clickedButton :EventEmitter<string> = new EventEmitter<string>();
 
- onDelete(){
-   this.clickedButton.emit('You deleted the image!')
+  @Output()
+  click :EventEmitter<any> = new EventEmitter<any>();
+
+ onClick(){
+   this.click.emit(this.item)
   
-   this.show= false;
+  
 
  }
 
