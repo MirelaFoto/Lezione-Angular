@@ -1,7 +1,7 @@
 <div style="margin-bottom: 10px;border:3px solid ;" [ngStyle]="{'border-color': colorBy(color)} "
-class="cont">{{index+1}}. <img *ngIf= 'show' [src]="item.profilePhotoUrl" style="width:70px;height:70px" alt="">
+class="cont">{{index+1}}. <img  [src]="item.profilePhotoUrl" style="width:70px;height:70px" alt="">
     <span><b>{{item.name +' '+item.surname}}</b> </span>
     <span>{{item.age}} </span>
     <span>{{item.address.city}} </span>
-    <button (click)="onDelete()" *ngIf= 'show'>Delete</button>
+    <button (click)="onClick()" >Delete</button>
   </div>

@@ -13,7 +13,7 @@ import { Gender, IUser,Role } from './user';
   *ngFor= "let key of User, let i = index;  " 
    [index]='i' 
    [item]='key' 
-  (clickedButton)="onClicked($event)"> </app-user-single>
+  (click)="onClick($event)"> </app-user-single>
 </div>
   `,
   styleUrls: ['./user-list.component.css']
@@ -78,16 +78,16 @@ export class UserListComponent implements OnInit {
 
 title = 'User details: '
 
-onClicked(message:string){
-return this.title= 'User details: '+'  '+ message;
-  
+onClick(data:any){
+  this.User.splice(this.User.indexOf(data),1)
 }
-
-show:boolean= true;
 
 funx():void{
-  alert('Non sono presenti utenti')
+  setTimeout(()=>
+    alert("Non ci sono utenti!!!") 
+ , 1000);
 }
+
 
  
 
