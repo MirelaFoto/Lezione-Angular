@@ -6,7 +6,7 @@ import { Gender, IUser,Role } from './user';
   template: `
   <h2>{{title}} </h2>
   <app-user-single *ngFor= "let key of User, let i = index;" [index]='i' [item]='key' 
-  (clickedButton)="onClicked($event)"> </app-user-single>
+  (delete)="onClick($event)"> </app-user-single>
   `,
   styleUrls: ['./user-list.component.css']
 })
@@ -66,13 +66,12 @@ export class UserListComponent implements OnInit {
 ];
 
 title = 'User details: '
-
-onClicked(message:string){
-return this.title= 'User details: '+'  '+ message;
   
-}
+ 
 
-show:boolean= true;
+  onClick(index:any){
+    this.User.splice(this.User.indexOf(index),1);
+  }
 
 
   constructor() { }
@@ -81,3 +80,4 @@ show:boolean= true;
   }
 
 }
+

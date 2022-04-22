@@ -8,24 +8,21 @@ import { IUser } from '../user-list/user';
   styleUrls: ['./user-single.component.css']
 })
 export class UserSingleComponent implements OnInit {
+  ngOnInit(): void {
+   
+  }
+  
   @Input() item!:IUser;
   @Input() index!:number ;
-show:boolean = true;
-  @Output()
-  clickedButton :EventEmitter<string> = new EventEmitter<string>();
 
- onDelete(){
-   this.clickedButton.emit('You deleted the image!')
-  
-   this.show= false;
+  @Output() delete:EventEmitter<any> =  new EventEmitter<any>();
+
+ onClick():void{
+ this.delete.emit(this.item)
+}
 
  }
-
  
   
-  constructor() { }
 
-  ngOnInit(): void {
-  }
 
-}
