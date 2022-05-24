@@ -1,4 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-user-single',
@@ -12,5 +14,10 @@ export class UserSingleComponent implements OnInit {
 
   ngOnInit(): void {
   }
+@Input() display!:boolean;
+
+@Output() show= new EventEmitter()
+  
+
  
 }

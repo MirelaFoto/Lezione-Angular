@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderSingleComponent implements OnInit {
 
+display:boolean=false;
   constructor() { }
 
   ngOnInit(): void {

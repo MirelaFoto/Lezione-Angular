@@ -1,11 +1,20 @@
 div{
     height: 26em;
    
-    background-color: rgb(57, 134, 109);
+    background-color: rgb(117, 235, 197);
     display: flex;
     flex-direction: column;
     
     
     gap:10px;
 
+}
+.all{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.item2{
+    width: 40%;
 }

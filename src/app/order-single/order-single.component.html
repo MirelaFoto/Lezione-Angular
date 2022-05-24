@@ -1,5 +1,7 @@
 
 <div>
-<app-user-single class="item"></app-user-single>
-<app-order-detail class="item"></app-order-detail>
+<app-user-single class="item"  (show)="display=true"></app-user-single>
+<app-order-detail class="item"
+
+*ngIf="display" (close)="display=false"></app-order-detail>
 </div>

@@ -10,6 +10,9 @@ import { OrderContainerComponent } from './order-container/order-container.compo
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderSingleComponent } from './order-single/order-single.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { UserContainerComponent } from './user-container/user-container.component';
+import { RouterModule } from '@angular/router';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +23,19 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     OrderContainerComponent,
     OrderListComponent,
     OrderSingleComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    UserContainerComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot([
+      {path:'user',component:UserContainerComponent},
+      {path:'ordini',component:OrderContainerComponent},
+      {path:'',redirectTo:'user',pathMatch:'full'},
+      {path:'**',component:ErrorComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

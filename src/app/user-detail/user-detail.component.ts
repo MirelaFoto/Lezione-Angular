@@ -1,4 +1,6 @@
+import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user-detail',
@@ -11,5 +13,5 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  @Output() close:EventEmitter<void> =new EventEmitter()
 }
