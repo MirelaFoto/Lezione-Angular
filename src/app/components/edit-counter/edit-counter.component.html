@@ -1,0 +1,6 @@
+<p>edit-counter works!</p>
+<input type="number" class="w-100 mb-3 text-center p-3 rounded fs-1 fw-bold" [(ngModel)]="num">
+<div class="w-100 d-flex align-items-center justify-content-center gap-3">
+  <button type="button" class="btn btn-primary" (click)="add()">Add {{ num}}</button>
+  <button type="button" class="btn btn-primary" (click)="sub()">Substract{{ num }}</button>
+</div>
