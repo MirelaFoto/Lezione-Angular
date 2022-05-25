@@ -4,36 +4,42 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ContatoreService {
+  private contatore: number = 0;
 
-
-  private counter = 0;
+  private errorMsg: boolean = false;
 
   constructor() { }
 
-
-  getCounter():number{
-    return this.counter;
+  getcontatore(): number {
+    return this.contatore;
   }
 
-addCounter(item: number = 1): void {
-    if (this.counter-item < 0) {
-      console.log('Errore, Il valore non puo diventare negativo!');
+  getErrorMsg(): boolean {
+    return this.errorMsg;
+  }
+
+  addContatore(number: number = 1): void {
+    if (this.contatore + number >0) {
+      this.contatore += number;
+      console.log(this.contatore);
+      this.errorMsg = false;
       
     } else {
-      this.counter += item;
-      console.log(this.counter);
-     
+      
+      console.log('Error: contatore cannot be below zero');
+      this.errorMsg = true;
     }
   }
 
-  subCounter(item: number = 1):void{
-    if (this.counter -item < 0) {
-      console.log('Errore, Il valore  non puo diventare negativo!');
-      
+subContatore(number: number = 1): void {
+    if (this.contatore - number >0) {
+      this.contatore -= number;
+      console.log(this.contatore);
+      this.errorMsg= false;
+     
     } else {
-      this.counter -= item;
-      console.log(this.counter);
-      
+      console.log('Error: contatore cannot be below zero');
+      this.errorMsg = true;
     }
   }
 }

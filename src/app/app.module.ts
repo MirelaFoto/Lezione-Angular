@@ -3,26 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
+import { FormsModule } from '@angular/forms';
 import { ShowCounterComponent } from './components/show-counter/show-counter.component';
 import { EditCounterComponent } from './components/edit-counter/edit-counter.component';
-=======
-import { CounterComponent } from './contatore/counter/counter.component';
->>>>>>> esercizio9.1
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
+
     ShowCounterComponent,
-    EditCounterComponent
-=======
-    CounterComponent
->>>>>>> esercizio9.1
+    EditCounterComponent,
+
+   
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

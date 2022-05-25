@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContatoreService } from 'src/app/contatore/services/contatore.service';
 
 @Component({
   selector: 'app-show-counter',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowCounterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contatoreService : ContatoreService) { }
 
   ngOnInit(): void {
+  }
+
+  getContatore(): number {
+    return this.contatoreService.getcontatore();
+  }
+
+ showError(): boolean {
+    return this.contatoreService.getErrorMsg();
   }
 
 }
