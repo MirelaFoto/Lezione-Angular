@@ -26,7 +26,7 @@ export class ContatoreService {
       
     } else {
       
-      console.log('Error: contatore cannot be below zero');
+      console.log('Errore, il valore non puo essere negativo');
       this.errorMsg = true;
     }
   }
@@ -38,7 +38,7 @@ subContatore(number: number = 1): void {
       this.errorMsg= false;
      
     } else {
-      console.log('Error: contatore cannot be below zero');
+      console.log('Errore, il valore non puo essere negativo');
       this.errorMsg = true;
     }
   }
