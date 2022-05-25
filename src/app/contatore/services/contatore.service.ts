@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,40 +8,40 @@ import { Injectable } from '@angular/core';
 export class ContatoreService {
   private contatore: number = 0;
 
-  private errorMsg: boolean = false;
+  contatore$: BehaviorSubject<number> = new BehaviorSubject<number>(this.contatore);
+  errore$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
-  getcontatore(): number {
-    return this.contatore;
+  getContatore():Observable<number>{
+    return this.contatore$.asObservable();
   }
-
-  getErrorMsg(): boolean {
-    return this.errorMsg;
+ 
+  getErrorMsg(): Observable<boolean> {
+    return this.errore$.asObservable();
   }
 
   addContatore(number: number = 1): void {
     if (this.contatore + number >0) {
       this.contatore += number;
-      console.log(this.contatore);
-      this.errorMsg = false;
+      this.contatore$.next(this.contatore);
+    this.errore$.next(false);
       
     } else {
       
-      console.log('Error: contatore cannot be below zero');
-      this.errorMsg = true;
+      this.errore$.next(true)
     }
   }
 
 subContatore(number: number = 1): void {
     if (this.contatore - number >0) {
       this.contatore -= number;
-      console.log(this.contatore);
-      this.errorMsg= false;
+      this.contatore$.next(this.contatore);
+      this.errore$.next(false);
      
     } else {
-      console.log('Error: contatore cannot be below zero');
-      this.errorMsg = true;
+     
+      this.errore$.next(true)
     }
   }
 }

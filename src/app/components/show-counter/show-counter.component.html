@@ -1,5 +1,5 @@
 
  <div class="container   text-center">
-  <h2>Contatore : {{ getContatore() }}</h2>
-  <p class="bg-danger text-center" *ngIf="showError()">Errore!!!<br> Il valore non puo essere negativo.</p>
+  <h2>Contatore : {{ contatore$ }}</h2>
+  <p class="bg-danger text-center" *ngIf="error">Errore!!!<br> Il valore non puo essere negativo.</p>
 </div>
