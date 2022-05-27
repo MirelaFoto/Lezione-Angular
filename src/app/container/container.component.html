@@ -1,0 +1,35 @@
+
+<main class="bg-dark py-4 px-5 d-flex flex-column align-items-center gap-2 ">
+  <h1 class="text-white fs-1 fw-bold">Joke App</h1>
+  <div class="container rounded bg-white px-5 py-3">
+    <div class="w-100 d-flex flex-column align-items-start gap-4">
+      <h2 class="fs-3 fw-bold">Read the joke and tell us if you liked it :</h2>
+      <div *ngIf="lastJoke">
+        <p class="fw-bold">{{lastJoke[0]}}</p>
+        <p class="fw-bold mt-1">{{lastJoke[1]}}</p>
+      </div>
+      <div class="align-self-center d-flex align-items-center gap-2">
+        <button type="button" class="btn btn-success" [disabled]="!lastJoke || !able"
+          (click)="like(lastJoke)">Like</button>
+        <button type="button" class="btn btn-danger" [disabled]="!lastJoke || !able"
+          (click)="dislike(lastJoke)">Dislike</button>
+      </div>
+    </div>
+  </div>
+  <div class="container rounded bg-success p-5">
+    <h2 class="fs-3 fw-bold">Liked Jokes:</h2>
+    <ng-container *ngIf="likedJokes.length > 0">
+      <app-jokes *ngFor="let joke of likedJokes; let i = index" [joke]="joke" [inviaLike]="true" [index]="i + 1"
+        (changePreference)="likeToDislike($event)">
+      </app-jokes>
+    </ng-container>
+  </div>
+  <div class="container rounded bg-danger p-5">
+    <h2 class="fs-3 fw-bold">Disliked Jokes:</h2>
+    <div *ngIf="dislikedJokes.length > 0">
+      <app-jokes *ngFor="let joke of dislikedJokes; let i = index" [joke]="joke" [inviaLike]="false" [index]="i + 1"
+        (changePreference)="dislikeToLike($event)">
+      </app-jokes>
+    </div>
+  </div>
+</main>
