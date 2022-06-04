@@ -1,3 +1,4 @@
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BeerService } from 'src/app/services/beer.services';
 import { IBeer } from 'src/app/models/beer';
@@ -6,42 +7,42 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-shop',
-  templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.css']
-  
-})
+  templateUrl:'./shop.component.html'})
+
+
+
 export class ShopComponent implements OnInit, OnDestroy {
   beerArr!: IBeer[];
-lastBeer!: IBeer | undefined;
-  sub: Subscription[] = [];
-  filteredType!: "small" | "medium";
+  myBeer!: IBeer | undefined;
+  subscriptions: Subscription[] = [];
+  filter!: "small" | "medium";
 
   constructor(private beerService: BeerService) { }
 
   ngOnInit(): void {
-    this.sub.push(
-      this.beerService.getBeerArray()
+    this.subscriptions.push(
+      this.beerService.getList()
         .subscribe((res: IBeer[]) => {
           this.beerArr = res;
         })
     );
-    this.sub.push(
-      this.beerService.getLastBeerSubject()
+    this.subscriptions.push(
+      this.beerService.getCurrentBeerSubject()
         .subscribe((res: IBeer | undefined) => {
-          this.lastBeer = res;
+          this.myBeer = res;
         })
     );
   }
 
   ngOnDestroy(): void {
-    this.sub.forEach((item: Subscription) => {
-     item.unsubscribe();
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
     });
   }
 
   search(f: NgForm): void {
-    this.beerService.getOneBeer(Number(f.value.name));
-    this.filteredType = f.value.type;
+    this.beerService.getCurrentBeer(Number(f.value.name));
+    this.filter = f.value.type;
   }
 
 }

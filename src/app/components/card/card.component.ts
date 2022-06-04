@@ -1,4 +1,6 @@
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { IBeer } from 'src/app/models/beer';
 
 @Component({
   selector: 'app-card',
@@ -11,5 +13,5 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  @Input() beer!: IBeer;
 }

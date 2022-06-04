@@ -12,79 +12,85 @@ export class BeerService {
       id: 1,
       type:'small',
       name: 'Beer-01',
-      price: 12
+      price: 6
     },
     {
       id: 2,
       type: 'small',
       name: 'Beer-02',
-      price: 5
+      price: 7
     },
     {
       id: 3,
       type: 'small',
       name: 'Beer-03',
-      price: 9
+      price: 12
     },
     {
       id: 4,
       type: 'small',
       name: 'Beer-04',
-      price: 3
+      price: 4
     },
     {
       id: 5,
       type: 'medium',
       name: 'Beer-05',
-      price: 11
+      price: 15
     },
     {
       id: 6,
       type: 'medium',
       name: 'Beer-06',
-      price: 13
+      price: 11
     },
     {
       id: 7,
       type: 'small',
       name: 'Beer-07',
-      price: 4
+      price: 15
     },
     {
       id: 8,
       type: 'small',
       name: 'Beer-08',
-      price: 1
+      price: 2
     },
     {
       id: 9,
       type: 'small',
       name: 'Beer-09',
-      price: 3
+      price: 12
     },
     {
       id: 10,
       type: 'medium',
       name: 'Beer-010',
-      price: 15
+      price: 4
     }
   ];
+beer:IBeer[]=[]
+  
 
-  beerSubject: BehaviorSubject<IBeer[]> = new BehaviorSubject<IBeer[]>(this.beerArr);
-  lastBeerSubject: BehaviorSubject<IBeer | undefined> = new BehaviorSubject<IBeer | undefined>(undefined);
+  beerList$: BehaviorSubject<IBeer[]> = new BehaviorSubject<IBeer[]>(this.beerArr);
+ myBeer$: BehaviorSubject<IBeer | undefined> = new BehaviorSubject<IBeer | undefined>(undefined);
 
   constructor() { }
 
-  getBeerArray(): Observable<IBeer[]> {
-    return this.beerSubject.asObservable();
+  getList(): Observable<IBeer[]> {
+    return this.beerList$.asObservable();
   }
 
-  getLastBeerSubject(): Observable<IBeer | undefined> {
-    return this.lastBeerSubject.asObservable();
+  getCurrentBeerSubject(): Observable<IBeer | undefined> {
+    return this.myBeer$.asObservable();
   }
 
-  getOneBeer(id: number): void {
-    this.lastBeerSubject.next(this.beerArr.find((beer: IBeer) => beer.id === id));
+  getCurrentBeer(id: number): void {
+    this.myBeer$.next(this.beerArr.find((beer: IBeer) => beer.id === id));
   }
 
+
+
+
+  
 }
